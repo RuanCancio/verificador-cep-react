@@ -42,22 +42,28 @@ function App() {
           <div className='Inputs'>
             <h1>Verificador de CEP</h1>
             <h2>Insira o seu CEP abaixo: </h2>
-            <input type="text" id="input-cep" value={maskCep(cep)} onChange={(e) => {
-              const onlyNumbers = e.target.value.replace(/\D/g, "");
-              setCep(onlyNumbers)
-            }} maxLength={9} />
-            <p><button onClick={pushCep}>Pesquisar</button></p>
+            <div className="input_wrapper">
+              <input type="text" id="input-cep" value={maskCep(cep)} onChange={(e) => {
+                const onlyNumbers = e.target.value.replace(/\D/g, "");
+                setCep(onlyNumbers)
+              }} maxLength={9} />
+              <p><button onClick={pushCep}>Pesquisar</button></p>
+            </div>
             {cep.length > 0 &&
               (cep.length === 8 ? <p style={{
-                color: "green",
+                color: "#afa",
                 textShadow: "1px 0px rgba(0, 0, 0, 0.479)",
                 marginLeft: "3rem",
-                marginTop: "0.5rem"
+                marginTop: "0.5rem",
+                fontStyle: "italic",
+                fontfamily: '"Roboto Slab", serif'
               }}>📍 Endereço encontrado!</p> : <p style={{
-                color: "red",
+                color: "#faa",
                 textShadow: "1px 0px rgba(0, 0, 0, 0.479)",
                 marginLeft: "3rem",
-                marginTop: "0.5rem"
+                marginTop: "0.5rem",
+                fontStyle: "italic",
+                fontfamily: '"Roboto Slab", serif'
               }}>📍 Endereço não encontrado!</p>)}
           </div>
           {mostrar && <div className='Info'>
